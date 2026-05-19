@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
 
 type Props = {
   lines: { prompt: string; text: string }[];
@@ -11,37 +10,58 @@ type Props = {
 export function TypingEffect({ lines, speed = 26 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  
+  // Safe initialization
   const [output, setOutput] = useState<{ prompt: string; typed: string; done: boolean }[]>(
-    lines.map((l) => ({ prompt: l.prompt, typed: "", done: false }))
+    (lines || []).map((l) => ({ prompt: l?.prompt || "", typed: "", done: false }))
   );
 
   useEffect(() => {
-    if (!inView) return;
+    // Guard against empty or invalid lines
+    if (!inView || !lines || lines.length === 0) return;
+    
     let lineIdx = 0;
     let charIdx = 0;
+    let timeoutId: NodeJS.Timeout; // Store the CURRENT active timeout
+
     const tick = () => {
       if (lineIdx >= lines.length) return;
-      const target = lines[lineIdx].text;
+      
+      const currentLine = lines[lineIdx];
+      // Bulletproof check to prevent "reading properties of undefined"
+      if (!currentLine) return; 
+
+      const target = currentLine.text || "";
       charIdx++;
+      
       setOutput((prev) => {
         const next = [...prev];
+        // Ensure the array element exists before modifying
+        if (!next[lineIdx]) {
+          next[lineIdx] = { prompt: currentLine.prompt, typed: "", done: false };
+        }
+        
         next[lineIdx] = {
-          prompt: lines[lineIdx].prompt,
+          prompt: currentLine.prompt,
           typed: target.slice(0, charIdx),
           done: charIdx >= target.length,
         };
         return next;
       });
+
       if (charIdx >= target.length) {
         lineIdx++;
         charIdx = 0;
-        setTimeout(tick, 280);
+        timeoutId = setTimeout(tick, 280);
       } else {
-        setTimeout(tick, speed);
+        timeoutId = setTimeout(tick, speed);
       }
     };
-    const t = setTimeout(tick, 400);
-    return () => clearTimeout(t);
+
+    timeoutId = setTimeout(tick, 400);
+    
+    // Cleanup will now successfully kill the zombie timeouts
+    return () => clearTimeout(timeoutId);
   }, [inView, lines, speed]);
 
   return (
