@@ -41,15 +41,15 @@ export const NAV = [
 
 export const EDUCATION = [
   {
-    period: "2011 — 2017",
-    title: "Detudom School · Primary Years",
+    period: "2014 — 2020",
+    title: "Sukcharoenphon · Primary Years",
     place:
-      "First port of call. Primary studies at Detudom School (โรงเรียนเดชอุดม), Ubon Ratchathani — first encounters with computers, electronics, and the quiet habit of taking things apart.",
+      "First port of call. Primary studies at Sukcharoenphon (โรงเรียนสุขเจริญผล), Samut Prakan — first encounters with computers, electronics, and the quiet habit of taking things apart.",
     icon: Anchor,
     current: false,
   },
   {
-    period: "2018 — 2020",
+    period: "2020 — 2024",
     title: "Detudom School · Middle Years",
     place:
       "Middle school at Detudom School. First web pages shipped to the open sea, first frames composed through a real viewfinder. The dual disciplines — code and camera — begin to take shape.",
@@ -57,7 +57,7 @@ export const EDUCATION = [
     current: false,
   },
   {
-    period: "2021 — Present",
+    period: "2024 — Present",
     title: "Detudom School · Senior High",
     place:
       "Senior high at Detudom School. Competing at provincial and regional academic levels, directing original music video work, and studying capital-market structure independently. Charting a course toward Thammasat University, Computer Science.",
@@ -227,10 +227,10 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com", icon: Instagram },
-  { label: "Facebook", href: "https://facebook.com", icon: Facebook },
+  { label: "Instagram", href: "https://www.instagram.com/iluvwynne/", icon: Instagram },
+  { label: "Facebook", href: "https://www.facebook.com/winne.venin", icon: Facebook },
   { label: "LINE", href: "https://line.me", icon: MessageCircle },
-  { label: "YouTube", href: "https://www.youtube.com/watch?v=yAH6bX0tzwg", icon: Youtube },
+  { label: "YouTube", href: "https://www.youtube.com/@13june-08", icon: Youtube },
 ];
 
 export { Sparkles, Wrench };
