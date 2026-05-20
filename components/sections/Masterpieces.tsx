@@ -11,71 +11,82 @@ export function Masterpieces() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<Project | null>(null);
 
-  // scroll-linked horizontal translation
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
-  // 0 → -75% so the row scrolls horizontally as the section scrolls vertically
-  const x = useTransform(scrollYProgress, [0, 1], ["2%", "-72%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["3%", "-68%"]);
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section
       id="masterpieces"
       ref={sectionRef}
-      // tall section so we get horizontal scroll travel
-      className="relative h-[420vh]"
+      className="relative h-[420vh] bg-parchment-200/40"
     >
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        {/* faint scenery wash */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_50%,rgba(15,23,42,0.04),transparent_70%)]" />
+
         <div className="mx-auto w-full max-w-7xl px-6">
           <SectionHeader
-            eyebrow="06 / Masterpieces"
+            eyebrow="Chapter VI — Chronicles"
             title={
               <>
-                Works that <span className="text-gradient-neon">moved people.</span>
+                Works that <span className="italic text-crimson-700">moved people.</span>
               </>
             }
-            subtitle="Music videos with real audiences, hardware that lives on desks, and software people actually use."
+            subtitle="A gallery of bounties — music videos with real audiences, software people use, and national-level accolades. Click any poster to view the full story."
           />
         </div>
 
         <motion.div
           ref={trackRef}
           style={{ x }}
-          className="mt-12 flex gap-6 pl-[6vw] will-change-transform"
+          className="mt-14 flex items-stretch gap-7 pl-[6vw] will-change-transform"
         >
           {PROJECTS.map((p, i) => (
             <ProjectCard key={p.id} project={p} onOpen={setActive} index={i} />
           ))}
-          {/* trailing CTA card */}
+
+          {/* trailing chapter card */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="flex w-[60vw] shrink-0 items-center justify-center rounded-3xl border border-dashed border-white/15 bg-white/[0.02] p-12 text-center sm:w-[420px]"
+            transition={{ duration: 0.8 }}
+            className="flex w-[78vw] shrink-0 flex-col items-center justify-center gap-3 self-stretch rounded-sm border-2 border-dashed border-sepia-700/40 bg-parchment-50 px-10 py-12 text-center shadow-cinema sm:w-[360px] md:w-[420px]"
           >
-            <div>
-              <p className="font-display text-3xl text-white">More on the way.</p>
-              <p className="mt-2 text-sm text-zinc-400">
-                Currently filming + soldering. Check back soon, or DM me on IG.
-              </p>
-            </div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-sepia-700">
+              To be continued
+            </p>
+            <p className="font-serif text-3xl font-medium leading-tight text-ocean-900">
+              More chapters
+              <br />
+              <span className="italic text-crimson-700">on the way.</span>
+            </p>
+            <p className="mt-2 max-w-[260px] text-sm leading-relaxed text-ocean-600">
+              Currently filming, soldering, and coding. Check back soon — or send a message.
+            </p>
           </motion.div>
         </motion.div>
 
-        {/* Progress bar */}
+        {/* progress chart */}
         <div className="mx-auto mt-10 w-full max-w-7xl px-6">
-          <div className="relative h-px w-full overflow-hidden bg-white/10">
-            <motion.div
-              style={{ width: progressWidth }}
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-emerald"
-            />
+          <div className="flex items-center gap-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-sepia-700">
+              Scroll to chart course
+            </p>
+            <div className="relative h-px flex-1 overflow-hidden bg-sepia-700/25">
+              <motion.div
+                style={{ width: progressWidth }}
+                className="absolute inset-y-0 left-0 bg-gradient-to-r from-ocean-900 via-sepia-700 to-crimson-700"
+              />
+            </div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-sepia-700">
+              {String(PROJECTS.length).padStart(2, "0")} chronicles
+            </p>
           </div>
-          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.25em] text-zinc-500">
-            Scroll to explore · {PROJECTS.length} works
-          </p>
         </div>
       </div>
 

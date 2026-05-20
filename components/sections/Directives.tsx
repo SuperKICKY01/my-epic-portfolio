@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { BentoCard } from "@/components/ui/BentoCard";
-import { DIRECTIVES } from "@/lib/data";
+import { DIRECTIVES, type DirectiveAccent } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function Directives() {
@@ -9,17 +9,21 @@ export function Directives() {
     <section id="directives" className="relative py-32 sm:py-40">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="05 / Directives"
-          title="Where my attention compounds."
-          subtitle="Four passions, one operating system. Each card tilts to your cursor — like the things themselves."
+          eyebrow="Chapter V — The Compass"
+          title={
+            <>
+              Where my attention <span className="italic text-crimson-700">compounds.</span>
+            </>
+          }
+          subtitle="Four bearings, one operator. Each card reacts to your cursor — like the things themselves."
         />
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-14 grid grid-cols-1 gap-5 md:auto-rows-[minmax(220px,auto)] md:grid-cols-3"
+          transition={{ duration: 0.9 }}
+          className="mt-16 grid grid-cols-1 gap-6 md:auto-rows-[minmax(240px,auto)] md:grid-cols-3"
         >
           {DIRECTIVES.map((d) => (
             <BentoCard
@@ -27,7 +31,7 @@ export function Directives() {
               title={d.title}
               blurb={d.blurb}
               icon={d.icon}
-              accent={d.accent as "neon-cyan" | "neon-emerald" | "neon-violet" | "neon-rose"}
+              accent={d.accent as DirectiveAccent}
               span={d.span}
               image={d.image}
             />

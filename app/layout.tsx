@@ -1,34 +1,45 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter, Cormorant_Garamond, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/effects/SmoothScroll";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const display = Space_Grotesk({
+const sans = Inter({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
   display: "swap",
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
-const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Chutipon — Director · Developer · Creator",
+  title: "Chutipon — Director · Engineer · Voyager",
   description:
-    "A cinematic portfolio. Music videos, hardware experiments, and code by a Thammasat-bound CS student.",
+    "A cinematic portfolio. Music videos directed, interfaces engineered, and markets charted by a senior-high student at Detudom School, setting course for Thammasat Computer Science.",
   metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: "Chutipon — Cyber-Cinematic Portfolio",
-    description: "Director. Developer. Creator.",
+    title: "Chutipon — Cinematic Adventure Portfolio",
+    description: "Director. Engineer. Voyager.",
     type: "website",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${display.variable} ${mono.variable} dark`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <body className="min-h-screen font-sans">
         <SmoothScroll>
           <Navbar />

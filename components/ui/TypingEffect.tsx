@@ -68,10 +68,10 @@ export function TypingEffect({ lines, speed = 26 }: Props) {
     <div ref={ref} className="font-mono text-sm leading-relaxed">
       {output.map((l, i) => (
         <div key={i} className="text-zinc-300">
-          <span className="text-neon-emerald">{l.prompt}</span>
-          <span className="ml-2 text-zinc-100">{l.typed}</span>
+          <span className="text-crimson-700">{l.prompt}</span>
+          <span className="ml-2 text-ocean-900">{l.typed}</span>
           {i === output.findIndex((o) => !o.done) && (
-            <span className="ml-0.5 inline-block w-[8px] translate-y-[2px] bg-neon-cyan animate-blink">
+            <span className="ml-0.5 inline-block w-[8px] translate-y-[2px] bg-ocean-900">
               &nbsp;
             </span>
           )}

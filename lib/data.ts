@@ -12,14 +12,17 @@ import {
   Youtube,
   Sparkles,
   Brain,
+  Compass,
+  Anchor,
+  Scroll,
 } from "lucide-react";
 
 export const PROFILE = {
   name: "Chutipon",
   alias: "@cwinner",
-  tagline: ["Architect.", "Director.", "Operator."],
+  tagline: ["The Director.", "The Engineer.", "The Voyager."],
   short:
-    "Student developer based in Ubon Ratchathani. Building interfaces, training prompts, and directing music videos — applying to Thammasat University, B.Sc. Computer Science.",
+    "Senior-high student at Detudom School in Ubon Ratchathani. Directing music videos, engineering interfaces, and charting US equities — setting course for Thammasat University, B.Sc. Computer Science.",
   location: "Ubon Ratchathani, Thailand",
   goal: "Thammasat University — B.Sc. Computer Science",
   schoolEmblem: "/images/projects/logo_detudom.png",
@@ -27,38 +30,38 @@ export const PROFILE = {
 };
 
 export const NAV = [
-  { id: "hero", label: "Home" },
-  { id: "architect", label: "Profile" },
-  { id: "evolution", label: "Journey" },
-  { id: "arsenal", label: "Skills" },
-  { id: "directives", label: "Interests" },
-  { id: "masterpieces", label: "Works" },
-  { id: "commlink", label: "Contact" },
+  { id: "hero", label: "Overture" },
+  { id: "architect", label: "The Author" },
+  { id: "evolution", label: "Log Pose" },
+  { id: "arsenal", label: "The Crew" },
+  { id: "directives", label: "Compass" },
+  { id: "masterpieces", label: "Chronicles" },
+  { id: "commlink", label: "Sail" },
 ];
 
 export const EDUCATION = [
   {
     period: "2011 — 2017",
-    title: "Detudom School · Primary",
+    title: "Detudom School · Primary Years",
     place:
-      "Early years at Detudom School, Ubon Ratchathani. First exposure to computers, electronics, and the curiosity loop that became everything after.",
-    icon: GraduationCap,
+      "First port of call. Primary studies at Detudom School (โรงเรียนเดชอุดม), Ubon Ratchathani — first encounters with computers, electronics, and the quiet habit of taking things apart.",
+    icon: Anchor,
     current: false,
   },
   {
     period: "2018 — 2020",
-    title: "Detudom School · Middle",
+    title: "Detudom School · Middle Years",
     place:
-      "Continued at Detudom School. First web pages shipped, first frames composed through a real viewfinder — the dual-stack identity begins to form.",
-    icon: GraduationCap,
+      "Middle school at Detudom School. First web pages shipped to the open sea, first frames composed through a real viewfinder. The dual disciplines — code and camera — begin to take shape.",
+    icon: Compass,
     current: false,
   },
   {
     period: "2021 — Present",
     title: "Detudom School · Senior High",
     place:
-      "Currently a senior high student at Detudom School. Active in national-level academic competitions, music video production, and independent capital markets practice. Applying to Thammasat University, Computer Science.",
-    icon: GraduationCap,
+      "Senior high at Detudom School. Competing at provincial and regional academic levels, directing original music video work, and studying capital-market structure independently. Charting a course toward Thammasat University, Computer Science.",
+    icon: Scroll,
     current: true,
   },
 ];
@@ -66,7 +69,7 @@ export const EDUCATION = [
 export const SKILLS = [
   {
     category: "Software",
-    color: "from-neon-cyan to-sky-500",
+    accent: "ocean",
     icon: Code2,
     items: [
       "React",
@@ -79,13 +82,13 @@ export const SKILLS = [
   },
   {
     category: "Hardware",
-    color: "from-neon-emerald to-sky-500",
+    accent: "sepia",
     icon: Cpu,
     items: ["Arduino", "ESP32", "PCB Design", "3D Printing", "Soldering", "PC Builds"],
   },
   {
     category: "Production",
-    color: "from-neon-rose to-neon-violet",
+    accent: "crimson",
     icon: Film,
     items: [
       "Direction",
@@ -98,7 +101,7 @@ export const SKILLS = [
   },
   {
     category: "Capital Markets",
-    color: "from-neon-violet to-fuchsia-500",
+    accent: "gold",
     icon: LineChart,
     items: [
       "Technical Analysis",
@@ -110,41 +113,50 @@ export const SKILLS = [
   },
 ];
 
-export const DIRECTIVES = [
+export type DirectiveAccent = "ocean" | "crimson" | "gold" | "sepia";
+
+export const DIRECTIVES: {
+  title: string;
+  blurb: string;
+  icon: typeof Code2;
+  accent: DirectiveAccent;
+  span: string;
+  image: string;
+}[] = [
   {
     title: "Software & Systems",
     blurb:
-      "Building production interfaces with React, Next.js, and TypeScript. Webpage Engineering gold-medalist at the 71st Arts & Crafts Exhibition, Area level.",
+      "Production interfaces in React, Next.js, and TypeScript. Gold Medal in Webpage Engineering at the 71st Arts & Crafts Exhibition (Regional level) — treating the browser as a precision instrument.",
     icon: Code2,
-    accent: "neon-cyan",
+    accent: "ocean",
     span: "md:col-span-2 md:row-span-1",
     image: "/images/projects/08_achievement_page-0003.jpg",
   },
   {
     title: "Generative AI",
     blurb:
-      "Consolation Prize, Generative AI: Prompt Engineering — 2nd Computing Fair 2024, College of Computing, Khon Kaen University. Treating language models as deterministic tools, not magic.",
+      "Consolation Prize, Generative AI — Prompt Engineering at the 2nd Computing Fair 2024, College of Computing, Khon Kaen University. Treating language models as deterministic tools, not magic.",
     icon: Brain,
-    accent: "neon-violet",
+    accent: "crimson",
     span: "md:col-span-1 md:row-span-2",
     image: "/images/projects/08_achievement_page-0008.jpg",
   },
   {
     title: "Capital Markets",
     blurb:
-      "Active positions in US equities and digital assets — NVDA, IREN, EOSE, RKLB. Technical analysis, market structure, risk discipline.",
+      "Trading US equities and crypto with technical analysis. Active positions and experience across NVDA, IREN, EOSE, and RKLB — market structure, risk discipline, patience.",
     icon: CandlestickChart,
-    accent: "neon-emerald",
+    accent: "gold",
     span: "md:col-span-1 md:row-span-1",
     image:
       "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80&auto=format&fit=crop",
   },
   {
-    title: "The Thammasat Trajectory",
+    title: "The Thammasat Course",
     blurb:
-      "Target: B.Sc. Computer Science at Thammasat University. This portfolio is the application.",
+      "Destination set: B.Sc. Computer Science at Thammasat University. This portfolio is the chart, the compass, and the application.",
     icon: GraduationCap,
-    accent: "neon-rose",
+    accent: "sepia",
     span: "md:col-span-2 md:row-span-1",
     image: "/images/projects/08_achievement_page-0005.jpg",
   },
@@ -158,6 +170,7 @@ export type Project = {
   meta: string;
   cover: string;
   youtubeId?: string;
+  href?: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -166,16 +179,17 @@ export const PROJECTS: Project[] = [
     title: "Original Music Video",
     category: "Music Video",
     year: "2024",
-    meta: "11,000+ views · Director · Cinematographer · Editor",
+    meta: "11,000+ views · Director, Videographer, Editor",
     cover: "https://i.ytimg.com/vi/yAH6bX0tzwg/maxresdefault.jpg",
     youtubeId: "yAH6bX0tzwg",
+    href: "https://www.youtube.com/watch?v=yAH6bX0tzwg",
   },
   {
     id: "ach-ai-infographic",
-    title: "AI Infographic Design Competition",
+    title: "AI Infographic Design",
     category: "Achievement",
     year: "2024",
-    meta: "1st Place Winner (รางวัลชนะเลิศ) · Ubon Ratchathani Provincial Senior High Division",
+    meta: "1st Place · Ubon Ratchathani Provincial · Senior High Division",
     cover: "/images/projects/08_achievement_page-0002.jpg",
   },
   {
@@ -183,7 +197,7 @@ export const PROJECTS: Project[] = [
     title: "Webpage Engineering (Text Editor)",
     category: "Achievement",
     year: "2024",
-    meta: "Gold Medal Winner (ชนะเลิศระดับเหรียญทอง) · 71st Arts & Crafts Exhibition · Regional / Area Level",
+    meta: "Gold Medal · 71st Arts & Crafts Exhibition · Regional Level",
     cover: "/images/projects/08_achievement_page-0003.jpg",
   },
   {
@@ -191,15 +205,15 @@ export const PROJECTS: Project[] = [
     title: "SCI-TECH TEST 2024 Aptitude",
     category: "Achievement",
     year: "2024",
-    meta: "5th Place Ranking (อันดับ 5 ระดับชั้น ม.5) · National Science & Technology Aptitude Test",
+    meta: "5th Place Ranking · National Science & Technology Aptitude Test",
     cover: "/images/projects/08_achievement_page-0005.jpg",
   },
   {
     id: "ach-gen-ai-consolation",
-    title: "Generative AI: Prompt Engineering",
+    title: "Generative AI · Prompt Engineering",
     category: "Achievement",
     year: "2024",
-    meta: "Consolation Prize (รางวัลชมเชย) · 2nd Computing Fair 2024 · College of Computing, Khon Kaen University",
+    meta: "Consolation Prize · 2nd Computing Fair 2024 · College of Computing, Khon Kaen University",
     cover: "/images/projects/08_achievement_page-0008.jpg",
   },
   {
@@ -207,7 +221,7 @@ export const PROJECTS: Project[] = [
     title: "Youth Leadership Programme",
     category: "Achievement",
     year: "2026",
-    meta: "Certified Participant · Ubon Ratchathani Youth Potential Development · Generation-10 Cohort",
+    meta: "Certified Participant · Ubon Ratchathani Youth Potential Development · Generation 10",
     cover: "/images/projects/youth_leadership_training.png",
   },
 ];

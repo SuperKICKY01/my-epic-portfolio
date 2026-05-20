@@ -7,68 +7,79 @@ import { SOCIALS } from "@/lib/data";
 export function CommLink() {
   return (
     <section id="commlink" className="relative isolate overflow-hidden py-32 sm:py-40">
-      {/* gradient ambient */}
-      <div className="pointer-events-none absolute inset-0 opacity-60">
-        <div className="absolute -left-40 top-10 h-96 w-96 rounded-full bg-neon-cyan/20 blur-3xl" />
-        <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-neon-violet/20 blur-3xl" />
+      {/* warm ambient wash */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-32 top-10 h-96 w-96 rounded-full bg-ocean-900/10 blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-crimson-700/10 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-mono text-[11px] uppercase tracking-[0.32em] text-neon-cyan/80"
+          className="inline-flex items-center gap-3"
         >
-          07 / Comm Link
-        </motion.p>
+          <span className="h-px w-10 bg-sepia-700/60" />
+          <p className="font-mono text-[10px] uppercase tracking-[0.36em] text-sepia-700">
+            Chapter VII — Set Sail
+          </p>
+          <span className="h-px w-10 bg-sepia-700/60" />
+        </motion.div>
 
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 font-display text-[clamp(4rem,16vw,15rem)] font-bold leading-[0.85] tracking-tighter outlined-text cursor-default"
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6 font-serif text-[clamp(3.5rem,14vw,12rem)] font-medium leading-[0.88] tracking-title text-ocean-900"
         >
-          LET&apos;S TALK
+          Let&apos;s
+          <span className="ml-4 italic text-crimson-700">talk.</span>
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-10 max-w-xl text-balance text-zinc-400"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mx-auto mt-10 max-w-xl text-balance text-base leading-relaxed text-ocean-600 sm:text-lg"
         >
-          For collaborations, music video commissions, or to ask about my Thammasat application — my inbox is open.
+          For collaborations, music video commissions, or questions about my Thammasat
+          application — my inbox is open. Send a message.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-10 flex flex-col items-center gap-6"
+          transition={{ duration: 0.8, delay: 0.32 }}
+          className="mt-12 flex flex-col items-center gap-7"
         >
-          <MagneticButton href="mailto:chutiponwinner@gmail.com" className="text-sm">
-            <Mail className="h-4 w-4 text-neon-cyan" />
+          <MagneticButton
+            href="mailto:chutiponwinner@gmail.com"
+            variant="crimson"
+            className="text-sm"
+          >
+            <Mail className="h-4 w-4" />
             chutiponwinner@gmail.com
             <ArrowUpRight className="h-4 w-4" />
           </MagneticButton>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
             {SOCIALS.map((s) => {
               const Icon = s.icon;
               return (
                 <MagneticButton
                   key={s.label}
                   href={s.href}
-                  className="!px-5 !py-3 text-xs"
-                  strength={0.5}
+                  variant="ghost"
+                  className="!px-5 !py-3 text-[11px]"
+                  strength={0.45}
                 >
-                  <Icon className="h-4 w-4" />
-                  <span className="font-mono uppercase tracking-widest">{s.label}</span>
+                  <Icon className="h-3.5 w-3.5" />
+                  <span className="font-mono uppercase tracking-[0.2em]">{s.label}</span>
                 </MagneticButton>
               );
             })}

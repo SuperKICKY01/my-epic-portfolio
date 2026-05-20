@@ -4,60 +4,84 @@ import { SKILLS } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { cn } from "@/lib/utils";
 
-// Flat list for marquee
 const MARQUEE = SKILLS.flatMap((c) => c.items.map((s) => ({ skill: s, cat: c.category })));
+
+const accentRing: Record<string, string> = {
+  ocean: "border-ocean-900/20",
+  crimson: "border-crimson-700/30",
+  gold: "border-gold-500/40",
+  sepia: "border-sepia-700/30",
+};
+
+const accentChip: Record<string, string> = {
+  ocean: "bg-ocean-900 text-parchment-50",
+  crimson: "bg-crimson-700 text-parchment-50",
+  gold: "bg-gold-600 text-parchment-50",
+  sepia: "bg-sepia-700 text-parchment-50",
+};
+
+const accentDot: Record<string, string> = {
+  ocean: "bg-ocean-900",
+  crimson: "bg-crimson-700",
+  gold: "bg-gold-500",
+  sepia: "bg-sepia-700",
+};
 
 export function Arsenal() {
   return (
     <section id="arsenal" className="relative py-32 sm:py-40">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="04 / Arsenal"
+          eyebrow="Chapter IV — The Crew"
           title={
             <>
-              The toolkit, <span className="text-gradient-neon">stack-ranked.</span>
+              The toolkit, <span className="italic text-crimson-700">stack-ranked.</span>
             </>
           }
           subtitle="Four disciplines that compound. Software thinking sharpens production work; production work pays for hardware; hardware teaches systems thinking back into software."
         />
 
         {/* Category grid */}
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SKILLS.map((cat, i) => {
             const Icon = cat.icon;
             return (
               <motion.div
                 key={cat.category}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-6 backdrop-blur-xl"
+                transition={{ duration: 0.85, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -6 }}
+                className={cn(
+                  "group relative overflow-hidden rounded-2xl border bg-parchment-50 p-6 shadow-cinema transition-shadow duration-500 hover:shadow-cinema-lg",
+                  accentRing[cat.accent]
+                )}
               >
-                <div
-                  className={cn(
-                    "absolute -inset-1 rounded-3xl opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-30",
-                    "bg-gradient-to-br",
-                    cat.color
-                  )}
-                />
+                <div className="grain absolute inset-0" />
+
                 <div className="relative">
                   <div
                     className={cn(
-                      "inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br text-white",
-                      cat.color
+                      "inline-flex h-12 w-12 items-center justify-center rounded-xl shadow-cinema-sm",
+                      accentChip[cat.accent]
                     )}
                   >
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-semibold text-white">{cat.category}</h3>
-                  <ul className="mt-4 space-y-1.5">
+
+                  <h3 className="mt-5 font-serif text-2xl font-medium leading-tight text-ocean-900">
+                    {cat.category}
+                  </h3>
+
+                  <ul className="mt-4 space-y-2">
                     {cat.items.map((item) => (
                       <li
                         key={item}
-                        className="font-mono text-xs text-zinc-400 transition-colors group-hover:text-zinc-200"
+                        className="flex items-center gap-2 font-mono text-[12px] tracking-wide text-ocean-700"
                       >
-                        — {item}
+                        <span className={cn("h-1 w-1 rounded-full", accentDot[cat.accent])} />
+                        {item}
                       </li>
                     ))}
                   </ul>
@@ -69,17 +93,17 @@ export function Arsenal() {
 
         {/* Infinite marquee */}
         <div className="relative mt-20 overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-ink-950 to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-ink-950 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-parchment-100 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-parchment-100 to-transparent" />
           <div className="flex w-max animate-marquee gap-4">
             {[...MARQUEE, ...MARQUEE].map((m, i) => (
               <span
                 key={i}
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 font-mono text-xs text-zinc-300"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-sepia-700/25 bg-parchment-50 px-5 py-2 font-mono text-xs tracking-wide text-ocean-700 shadow-cinema-sm"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-neon-cyan" />
+                <span className="h-1.5 w-1.5 rounded-full bg-crimson-700" />
                 {m.skill}
-                <span className="text-zinc-600">· {m.cat}</span>
+                <span className="text-sepia-700/80">· {m.cat}</span>
               </span>
             ))}
           </div>
