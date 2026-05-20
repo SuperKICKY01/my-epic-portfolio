@@ -5,3 +5,6 @@ out/
 .DS_Store
 *.log
 .claude/
+
+_raw_data/
+tsconfig.tsbuildinfo
