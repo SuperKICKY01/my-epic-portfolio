@@ -19,7 +19,7 @@ export const PROFILE = {
   alias: "@cwinner",
   tagline: ["Architect.", "Director.", "Operator."],
   short:
-    "I architect software by daylight and direct frames after dark — shipping interfaces that breathe, training generative models with surgical prompts, and composing stories that have already reached audiences eleven thousand strong. One operator, two stacks, zero shortcuts.",
+    "Student developer based in Ubon Ratchathani. Building interfaces, training prompts, and directing music videos — applying to Thammasat University, B.Sc. Computer Science.",
   location: "Ubon Ratchathani, Thailand",
   goal: "Thammasat University — B.Sc. Computer Science",
   schoolEmblem: "/images/projects/logo_detudom.png",
@@ -39,17 +39,17 @@ export const NAV = [
 export const EDUCATION = [
   {
     period: "2011 — 2017",
-    title: "Primary School",
+    title: "Detudom School · Primary",
     place:
-      "First principles, learned the hard way — disassembling household electronics, sketching impossible interfaces years before discovering the vocabulary for them.",
+      "Early years at Detudom School, Ubon Ratchathani. First exposure to computers, electronics, and the curiosity loop that became everything after.",
     icon: GraduationCap,
     current: false,
   },
   {
     period: "2018 — 2020",
-    title: "Middle School",
+    title: "Detudom School · Middle",
     place:
-      "First production <script> tag shipped to a live page. First frame composed through a real viewfinder. The dual-stack identity quietly takes shape.",
+      "Continued at Detudom School. First web pages shipped, first frames composed through a real viewfinder — the dual-stack identity begins to form.",
     icon: GraduationCap,
     current: false,
   },
@@ -57,7 +57,7 @@ export const EDUCATION = [
     period: "2021 — Present",
     title: "Detudom School · Senior High",
     place:
-      "National Champion in Generative AI Prompt Engineering. Music-video director with 11K+ aggregate views. Active operator across US equities and digital assets. Final approach vector locked on Thammasat Computer Science.",
+      "Currently a senior high student at Detudom School. Active in national-level academic competitions, music video production, and independent capital markets practice. Applying to Thammasat University, Computer Science.",
     icon: GraduationCap,
     current: true,
   },
@@ -79,13 +79,13 @@ export const SKILLS = [
   },
   {
     category: "Hardware",
-    color: "from-neon-emerald to-teal-500",
+    color: "from-neon-emerald to-sky-500",
     icon: Cpu,
     items: ["Arduino", "ESP32", "PCB Design", "3D Printing", "Soldering", "PC Builds"],
   },
   {
     category: "Production",
-    color: "from-neon-rose to-orange-500",
+    color: "from-neon-rose to-neon-violet",
     icon: Film,
     items: [
       "Direction",
@@ -114,7 +114,7 @@ export const DIRECTIVES = [
   {
     title: "Software & Systems",
     blurb:
-      "From component composition to production deployment — engineering interfaces that hold sixty frames per second and refuse to blink under load. National-finalist credentials in webpage engineering, built with nothing but a text editor.",
+      "Building production interfaces with React, Next.js, and TypeScript. Webpage Engineering gold-medalist at the 71st Arts & Crafts Exhibition, Area level.",
     icon: Code2,
     accent: "neon-cyan",
     span: "md:col-span-2 md:row-span-1",
@@ -123,7 +123,7 @@ export const DIRECTIVES = [
   {
     title: "Generative AI",
     blurb:
-      "National Champion at the 2nd Computing Fair 2024, College of Computing. Treating language models as precision instruments — disciplined inputs, predictable outputs, zero hallucinated guesswork.",
+      "Consolation Prize, Generative AI: Prompt Engineering — 2nd Computing Fair 2024, College of Computing, Khon Kaen University. Treating language models as deterministic tools, not magic.",
     icon: Brain,
     accent: "neon-violet",
     span: "md:col-span-1 md:row-span-2",
@@ -132,7 +132,7 @@ export const DIRECTIVES = [
   {
     title: "Capital Markets",
     blurb:
-      "Live positions across US equities and digital assets — NVDA, IREN, EOSE, RKLB — executed on technical structure and risk geometry, never on sentiment or hope.",
+      "Active positions in US equities and digital assets — NVDA, IREN, EOSE, RKLB. Technical analysis, market structure, risk discipline.",
     icon: CandlestickChart,
     accent: "neon-emerald",
     span: "md:col-span-1 md:row-span-1",
@@ -142,7 +142,7 @@ export const DIRECTIVES = [
   {
     title: "The Thammasat Trajectory",
     blurb:
-      "Four years mapped, every credit accounted for — a B.Sc. in Computer Science at Thammasat University, earned by the very portfolio you are reading right now.",
+      "Target: B.Sc. Computer Science at Thammasat University. This portfolio is the application.",
     icon: GraduationCap,
     accent: "neon-rose",
     span: "md:col-span-2 md:row-span-1",
@@ -163,7 +163,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     id: "mv-signature",
-    title: "Signature Cut — Original Music Video",
+    title: "Original Music Video",
     category: "Music Video",
     year: "2024",
     meta: "11,000+ views · Director · Cinematographer · Editor",
@@ -171,75 +171,43 @@ export const PROJECTS: Project[] = [
     youtubeId: "yAH6bX0tzwg",
   },
   {
-    id: "ach-gen-ai-champion",
-    title: "Champion — Generative AI Prompt Engineering",
-    category: "Achievement",
-    year: "2024",
-    meta: "1st Place · 2nd Computing Fair 2024 · College of Computing · National Showcase",
-    cover: "/images/projects/08_achievement_page-0008.jpg",
-  },
-  {
-    id: "ach-webpage-national-r10",
-    title: "Webpage Engineering — National Finalist",
-    category: "Achievement",
-    year: "2024",
-    meta: "70th National Arts & Crafts · Text-Editor Build · Senior High Division",
-    cover: "/images/projects/08_achievement_page-0003.jpg",
-  },
-  {
-    id: "ach-sci-tech-gold",
-    title: "SCI-TECH TEST 2024 — Gold Medal",
-    category: "Achievement",
-    year: "2024",
-    meta: "Science & Technology Aptitude · National Standardised Competition · Gold Tier",
-    cover: "/images/projects/08_achievement_page-0005.jpg",
-  },
-  {
     id: "ach-ai-infographic",
-    title: "AI Infographic Competition",
+    title: "AI Infographic Design Competition",
     category: "Achievement",
     year: "2024",
-    meta: "Senior High Division · Visual Computing × Information Design",
+    meta: "1st Place Winner (รางวัลชนะเลิศ) · Ubon Ratchathani Provincial Senior High Division",
     cover: "/images/projects/08_achievement_page-0002.jpg",
   },
   {
-    id: "ach-webpage-finals",
-    title: "Webpage Engineering — Championship Round",
+    id: "ach-webpage-gold",
+    title: "Webpage Engineering (Text Editor)",
     category: "Achievement",
     year: "2024",
-    meta: "National Bracket · Text-Editor Build · Round 10",
-    cover: "/images/projects/08_achievement_page-0004.jpg",
+    meta: "Gold Medal Winner (ชนะเลิศระดับเหรียญทอง) · 71st Arts & Crafts Exhibition · Regional / Area Level",
+    cover: "/images/projects/08_achievement_page-0003.jpg",
   },
   {
-    id: "ach-ict-equation",
-    title: "ICT Computational Skills",
+    id: "ach-sci-tech",
+    title: "SCI-TECH TEST 2024 Aptitude",
     category: "Achievement",
     year: "2024",
-    meta: "9th Ubon · Amnat Charoen Secondary Education Bracket · Senior High Division",
-    cover: "/images/projects/08_achievement_page-0001.jpg",
+    meta: "5th Place Ranking (อันดับ 5 ระดับชั้น ม.5) · National Science & Technology Aptitude Test",
+    cover: "/images/projects/08_achievement_page-0005.jpg",
   },
   {
-    id: "ach-webpage-regional",
-    title: "Webpage Engineering — Regional Qualifier",
+    id: "ach-gen-ai-consolation",
+    title: "Generative AI: Prompt Engineering",
     category: "Achievement",
     year: "2024",
-    meta: "Provincial Bracket · Text-Editor Build · Top Performer",
-    cover: "/images/projects/08_achievement_page-0006.jpg",
-  },
-  {
-    id: "ach-webpage-provincial",
-    title: "Webpage Engineering — Provincial Champion",
-    category: "Achievement",
-    year: "2024",
-    meta: "Provincial Final · Text-Editor Build · Champion Bracket",
-    cover: "/images/projects/08_achievement_page-0007.jpg",
+    meta: "Consolation Prize (รางวัลชมเชย) · 2nd Computing Fair 2024 · College of Computing, Khon Kaen University",
+    cover: "/images/projects/08_achievement_page-0008.jpg",
   },
   {
     id: "ach-youth-leadership",
-    title: "Youth Leadership · Community Impact",
+    title: "Youth Leadership Programme",
     category: "Achievement",
     year: "2026",
-    meta: "Ubon Ratchathani Youth Potential Programme · Generation-10 Cohort",
+    meta: "Certified Participant · Ubon Ratchathani Youth Potential Development · Generation-10 Cohort",
     cover: "/images/projects/youth_leadership_training.png",
   },
 ];

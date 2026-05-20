@@ -6,12 +6,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: { 950: "#05060a", 900: "#0a0c12", 800: "#10131c", 700: "#171b27", 600: "#222736" },
+        // Deep Midnight base — sophisticated navy/slate over harsh blacks
+        ink: {
+          950: "#020617",
+          900: "#060B1A",
+          800: "#0B1226",
+          700: "#131D38",
+          600: "#1D2A4D",
+        },
+        // K-SciFi Hologram accent stack (no greens, all electric)
         neon: {
           cyan: "#22d3ee",
-          emerald: "#34d399",
+          emerald: "#38bdf8", // remapped to sky-blue for hologram coherence
           violet: "#a78bfa",
-          rose: "#fb7185",
+          rose: "#f0abfc", // remapped to fuchsia for magenta-hologram coherence
         },
       },
       fontFamily: {
@@ -21,14 +29,18 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-fade":
-          "radial-gradient(circle at center, rgba(34,211,238,0.08) 0%, transparent 70%)",
+          "radial-gradient(circle at center, rgba(34,211,238,0.10) 0%, transparent 70%)",
         "aurora":
-          "conic-gradient(from 180deg at 50% 50%, #22d3ee 0deg, #a78bfa 120deg, #34d399 240deg, #22d3ee 360deg)",
+          "conic-gradient(from 180deg at 50% 50%, #22d3ee 0deg, #38bdf8 100deg, #a78bfa 220deg, #f0abfc 320deg, #22d3ee 360deg)",
+        "holo-scan":
+          "repeating-linear-gradient(180deg, rgba(34,211,238,0.04) 0px, rgba(34,211,238,0.04) 1px, transparent 1px, transparent 4px)",
       },
       boxShadow: {
-        "glow-cyan": "0 0 30px -5px rgba(34,211,238,0.55), 0 0 60px -15px rgba(34,211,238,0.35)",
-        "glow-emerald": "0 0 30px -5px rgba(52,211,153,0.55)",
+        "glow-cyan": "0 0 32px -6px rgba(34,211,238,0.55), 0 0 80px -20px rgba(34,211,238,0.35)",
+        "glow-emerald": "0 0 32px -6px rgba(56,189,248,0.55)",
+        "glow-violet": "0 0 32px -6px rgba(167,139,250,0.55)",
         "inset-soft": "inset 0 1px 0 0 rgba(255,255,255,0.06)",
+        "holo": "0 0 0 1px rgba(34,211,238,0.12), 0 20px 60px -30px rgba(34,211,238,0.35)",
       },
       animation: {
         "aurora-spin": "aurora-spin 20s linear infinite",
@@ -37,6 +49,7 @@ const config: Config = {
         "marquee-reverse": "marquee 35s linear infinite reverse",
         "shimmer": "shimmer 2.2s linear infinite",
         "blink": "blink 1s step-end infinite",
+        "scan": "scan 6s linear infinite",
       },
       keyframes: {
         "aurora-spin": { to: { transform: "rotate(360deg)" } },
@@ -53,6 +66,10 @@ const config: Config = {
           "100%": { backgroundPosition: "200% 0" },
         },
         blink: { "50%": { opacity: "0" } },
+        scan: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(100%)" },
+        },
       },
     },
   },

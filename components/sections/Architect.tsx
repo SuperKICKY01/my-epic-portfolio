@@ -17,7 +17,7 @@ export function Architect() {
                 <span className="text-gradient-neon">One operator.</span>
               </>
             }
-            subtitle="By day I'm prepping for Thammasat Computer Science. By night I'm behind the camera, directing music videos that have crossed 11K+ views. The same brain runs both."
+            subtitle="Senior high student preparing for Thammasat Computer Science. After hours: directing and editing music videos that have reached 11K+ views. The same operator runs both stacks."
           />
         </div>
 
@@ -32,9 +32,9 @@ export function Architect() {
             {/* Title bar */}
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
               <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-full bg-red-500/80" />
-                <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
-                <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
+                <span className="h-3 w-3 rounded-full bg-rose-500/70" />
+                <span className="h-3 w-3 rounded-full bg-amber-400/70" />
+                <span className="h-3 w-3 rounded-full bg-cyan-400/80" />
               </div>
               <div className="flex items-center gap-2 text-xs text-zinc-400">
                 <Terminal className="h-3.5 w-3.5" />
